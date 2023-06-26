@@ -2,8 +2,8 @@
 
 module.exports = {
   content: [
-    './pages/**/*.{js, jsx, ts, tsx}',
-    './components/**/*.{js, jsx, ts, tsx}',
+    './pages/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
   ],
   // components와 pages 내 모든 폴더의 모든 {js, jsx, ts, tsx} 확장자 파일
   theme: {

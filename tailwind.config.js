@@ -9,7 +9,9 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  // darkMode: 'media',
+  darkMode: 'class',
+  plugins: [require('@tailwindcss/forms')],
 };
 
 // module.exports = {

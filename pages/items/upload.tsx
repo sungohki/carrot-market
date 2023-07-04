@@ -1,19 +1,15 @@
-import Layout from '@/components/layout';
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
+import Button from "../../components/button";
+import Input from "../../components/input";
+import Layout from "../../components/layout";
+import TextArea from "../../components/textarea";
 
 const Upload: NextPage = () => {
   return (
-    // container
-    <Layout hasToBar>
-      <div className="px-4 py-16">
-        {/* First Section */}
+    <Layout canGoBack title="Upload Product">
+      <form className="p-4 space-y-4">
         <div>
-          {/* file uploader */}
-          <label
-            className="w-full cursor-pointer h-48 rounded-md flex items-center justify-center border-2 border-dashed border-gray-400 py-6 text-gray-600
-          hover:text-orange-500 hover:border-orange-400
-          "
-          >
+          <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
             <svg
               className="h-12 w-12"
               stroke="currentColor"
@@ -28,48 +24,21 @@ const Upload: NextPage = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <input type="file" className="hidden" />
+            <input className="hidden" type="file" />
           </label>
         </div>
-
-        {/* Price Decider */}
-        <div className="my-5">
-          <label
-            htmlFor="description"
-            className="text-xl font-medium text-gray-700"
-          >
-            Price
-          </label>
-          <div className="flex items-center rounded-md relative shadow-md">
-            <div className="absolute left-0 pl-3 flex items-center justify-center pointer-events-none">
-              <span className="text-gray-500 text-bold">$</span>
-            </div>
-            <input
-              id="description"
-              type="text"
-              placeholder="0.00"
-              className="appearance-none pl-7 px-3 py-2 w-full border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:ring-orange-400 focus:border-orange-500"
-            />
-            <div className="absolute right-0 pr-3 flex items-center justify-center pointer-events-none">
-              <span className="text-gray-500">USD</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Description */}
-        <div>
-          <label className="text-xl font-medium text-gray-700">
-            Description
-          </label>
-          <textarea
-            rows={4}
-            className="mt-1 shadow-lg w-full focus:ring focus-within:ring-orange-500 rounded-md border-gray-300 hover:border-orange-300"
-          />
-        </div>
-        <button className="mt-4 w-full bg-orange-400 hover:bg-orange-500 text-white py-2 px-4 border border-transparent rounded-md shadow-lg font-medium focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:outline-none">
-          Upload item
-        </button>
-      </div>
+        <Input required label="Name" name="name" type="text" />
+        <Input
+          required
+          label="Price"
+          placeholder="0.00"
+          name="price"
+          type="text"
+          kind="price"
+        />
+        <TextArea name="description" label="Description" />
+        <Button text="Upload item" />
+      </form>
     </Layout>
   );
 };
